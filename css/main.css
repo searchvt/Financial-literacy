@@ -1,0 +1,16 @@
+body {
+  background-color: aquamarine;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+.container .slider {
+  display: grid;
+}
+.container .slider .slider li {
+  display: flexbox;
+  justify-content: center;
+  flex-direction: row;
+}/*# sourceMappingURL=main.css.map */
