@@ -1,15 +1,8 @@
-function myFunction() {
-	document.getElementById("myDropdown").classList.toggle("show");
-}
-
-window.onclick = function (e) {
-	if (!e.target.matches('.dropbtn')) {
-		var myDropdown = document.getElementById("myDropdown");
-		if (myDropdown.classList.contains('show')) {
-			myDropdown.classList.remove('show');
-		}
-	}
-}
+const myDropdown = document.querySelector("#myDropdown");
+const dropBtn = document.querySelector(".dropbtn");
+dropBtn.addEventListener("click", function () {
+	myDropdown.classList.toggle('show')
+});
 
 
 
@@ -23,20 +16,45 @@ function cycleTestimonials(index) {
 			view: window,
 			bubbles: true,
 			cancelable: true,
-			clientX: 4
+			clientX: 2
 		});
 
 		var ele = "." + testimonialItems[index].className;
-		var ele2 = document.querySelector(ele)
+		var ele2 = document.querySelector(ele);
 		ele2.dispatchEvent(evt);
 		index++;
 		if (index >= testimonialItems.length) {
-			index = 0; // Set it back to `0` when it reaches `3`
+			index = 1; // Set it back to `0` when it reaches `3`
 		}
 		cycleTestimonials(index);
 		document.querySelector(".category").addEventListener("click", function () {
 			clearTimeout(timer);
 		});
-	}, 400);
+	}, 1500);
 }
-cycleTestimonials(0);
+cycleTestimonials(2);
+
+
+// ==================
+function openTab(tabName) {
+	let i;
+	let tabContent;
+
+	tabContent = document.getElementsByClassName("tab-content");
+
+	for (i = 0; i < tabContent.length; i++) {
+		tabContent[i].style.display = "none";
+	}
+
+	document.getElementById(tabName).style.display = "grid";
+	// document.getElementById(tabName).style.justifyItems = "center";
+}
+
+let listD = document.getElementById("list");
+let rankD = document.getElementById("rank");
+let BudgetingRC = document.getElementById("budget");
+
+listD.addEventListener("click", function () { openTab("ListDebt") }, false);
+rankD.addEventListener("click", function () { openTab("RankDebt") }, false);
+BudgetingRC.addEventListener("click", function () { openTab("Budgeting") }, false);
+// ===============
